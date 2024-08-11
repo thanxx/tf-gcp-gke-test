@@ -6,6 +6,11 @@ terraform {
 }
   
 
+resource "tls_private_key" "this" {
+  algorithm = var.algorithm
+  ecdsa_curve = var.ecdsa_curve
+}
+
 
 module "gke_cluster" {
   source         = "github.com/thanxx/tf-google-gke-cluster"
